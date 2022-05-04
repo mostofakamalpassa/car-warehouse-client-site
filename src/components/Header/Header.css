@@ -1,0 +1,11 @@
+.navbar-light{
+    background-color: #16A085 !important;
+    color:#fff !important;
+}
+
+.nav-link{
+    color:#fff !important;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
