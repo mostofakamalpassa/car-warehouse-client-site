@@ -17,32 +17,34 @@ const Header = () => {
     <Navbar collapseOnSelect expand="lg" className="mb-4">
       <Container>
         <ActiveRoute className="nav-link" to="/">
-          Car Manager
+          <img src="images/logo.png" alt="" />
+         
         </ActiveRoute>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
+            <ActiveRoute to='/blog' className="nav-link">Blog</ActiveRoute>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           <Nav>
             {user ? (
-              <NavDropdown title="Dash Board" id="collasible-nav-dropdown">
-                <ActiveRoute className="nav-link bg-primary" to="/add">
-                  Add Product
+            
+             <>
+                <ActiveRoute className="nav-link" to="/add">
+                  Add items
                 </ActiveRoute>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
+            
+                <ActiveRoute className="nav-link" to="/manage-item">
+                Manage Items
+                </ActiveRoute>
+            
+                <ActiveRoute className="nav-link" to="/manage-item">
+                My items
+                </ActiveRoute>
+            
+                </>
+              
             ) : (
               ""
             )}

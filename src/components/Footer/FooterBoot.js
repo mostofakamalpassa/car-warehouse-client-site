@@ -12,22 +12,22 @@ const FooterBoot = () => {
                     <div className="col-lg-4 col-md-4 col-sm-6">
                         <div className="footer-left">
                             <div className="footer-logo">
-                                <a href="#"><img src="images/logo2.png" alt="logo" width="179" height="45"/></a>
+                                <a href="#"><img src="images/logo.png" alt="logo" width="179" height="45"/></a>
                             </div>
-                            <p className='pt-3'>Car warehouse provides support services to US Defined Contribution Plan Third Party Administrators. Our services are based on Outsourcing model </p>
+                            <p className='pt-3 text-warning'>The Car Warehouse hosts a selection of pre-owned cars at our Swansea and Bridgend locations. Come visit and let our friendly staff help you find your next car. </p>
                          
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6">
                         <div className="footer-middle">
-                            <h2 className="footer-title">What We Do</h2>
+                            <h2 className="footer-title text-light">What We Do</h2>
                             <div className="row">
                                 <div className="col-xl-12">
                                     <ul className="footer-list">
-                                        <li><a href="#"><i className="fas fa-angle-right"></i>Financial Advice</a></li>
-                                        <li><a href="#"><i className="fas fa-angle-right"></i>Planning Strategies</a></li>
-                                        <li><a href="#"><i className="fas fa-angle-right"></i>Taxation Planning</a></li>
-                                        <li><a href="#"><i className="fas fa-angle-right"></i>Investment Trading</a></li>
+                                        <li className='text-warning' ><i className="fas fa-angle-right"></i> HDD navigation system</li>
+                                        <li className='text-warning'><i className="fas fa-angle-right"></i>front heated leather seats</li>
+                                        <li className='text-warning'><i className="fas fa-angle-right"></i>adaptive cruise control</li>
+                                        <li className='text-warning'><i className="fas fa-angle-right"></i>leather heated multifunction steering wheel</li>
                                     </ul>
                                 </div>
                              
@@ -36,8 +36,8 @@ const FooterBoot = () => {
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6">
                         <div className="footer-right2">
-                            <h2 className="footer-title">Get Updates!</h2>
-                            <p>Sign up for our latest news &amp; articles. We won’t give you spam mails.</p>
+                            <h2 className="footer-title text-light">Get Updates!</h2>
+                            <p className='text-warning'>Sign up for our latest news &amp; articles. We won’t give you spam mails.</p>
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder="Enter your Email"/>
                                 <div className="input-group-append">
