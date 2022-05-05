@@ -9,6 +9,10 @@ const AllProduct = () => {
   const handleDelete = id =>{
 
     console.log('delete id = ', id);
+    fetch(`http://localhost:5000/product/${id}`,{
+      method:'DELETE'
+    }).then(res => res.json())
+    .then(data => console.log(data));
   }
 
   return (
@@ -39,24 +43,7 @@ const AllProduct = () => {
             </tr>
             ))
           }
-          <tr>
-            <td>2</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
+          
         </tbody>
       </Table>
      
