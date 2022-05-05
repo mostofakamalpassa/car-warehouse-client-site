@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import About from './Pages/About/About';
@@ -42,6 +43,10 @@ function App() {
       <ToastContainer></ToastContainer>
       {/* <Register></Register>
       <Login></Login> */}
+
+
+
+      <Footer></Footer>
     </>
     
   );
