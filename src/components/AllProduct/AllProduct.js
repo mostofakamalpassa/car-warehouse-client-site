@@ -33,10 +33,10 @@ const AllProduct = () => {
           {
             products.map(pro=>(
               <tr key={pro._id}>
-              <td>{pro._id}</td>
+              <td>{pro.imageUrl}</td>
               <td>{pro.productName}</td>
-              <td>{pro.ProductDescription}</td>
-              <td>{pro.Price}</td>
+              <td>{pro.productDescription}</td>
+              <td>{pro.price}</td>
               <td>{pro.qty}</td>
               <td>{pro.supplier}</td>
               <td><FaPenSquare></FaPenSquare>|| <FaTrash className="text-danger"  onClick={()=> handleDelete(pro._id)}></FaTrash></td>

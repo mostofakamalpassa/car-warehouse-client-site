@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { toast } from "react-toastify";
 import AllProduct from "../../components/AllProduct/AllProduct";
-;
-
 const AddProduct = () => {
+  const heandleSubmitProducts = (ev) => {
+    ev.preventDefault();
+    console.log(ev)
+    const productName = ev.target.productName.value;
+    const productDescription = ev.target.productDescription.value;
+    const price = ev.target.productPrice.value;
+    const qty = ev.target.productQty.value;
+    const supplier = ev.target.supplier.value;
+    const imageUrl = ev.target.imageUrl.value;
+
+    let result = {
+      productName,
+      productDescription,
+      price,
+      qty,
+      supplier,
+      imageUrl,
+    };
+
+    if(!productName || productName.trim().length <3){
+      toast(" Product name is required")
+      return;
+    }
+
+    if(!price || price<=0){
+      toast(" Product Price is required")
+      return;
+    }
+    if(!qty || qty <= 0){
+      toast(" Product Qty is required")
+      return;
+    }
+    if(!imageUrl || imageUrl.trim().length <= 10){
+      toast(" Image  is required")
+      return;
+    }
+
+  
+
+      fetch('http://localhost:5000/add-products',{
+        method:"POST",
+        headers:{
+          "content-type":"application/json"
+        },
+        body: JSON.stringify(result)
+      }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err))
+
  
+
+    console.log("product insertd", result);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -14,7 +64,7 @@ const AddProduct = () => {
               <h5 className="card-title text-center mb-5 fw-light fs-5">
                 Add Product
               </h5>
-              <form>
+              <form onSubmit={heandleSubmitProducts}>
                 <div className="form-floating mb-3">
                   <input
                     type="text"
@@ -33,9 +83,7 @@ const AddProduct = () => {
                     name="productDescription"
                     className="form-control"
                     id="floatingInputDescription"
-                  >
-                 
-                  </textarea>
+                  ></textarea>
                   <label htmlFor="floatingInputDescription">
                     Product Description
                   </label>
@@ -53,10 +101,10 @@ const AddProduct = () => {
                       />
                       <label htmlFor="floatingPrice">Price</label>
                     </div>
-                    </div>
-                    <div className="col-sm-6">
-                        <div className="form-floating">
-                        <input
+                  </div>
+                  <div className="col-sm-6">
+                    <div className="form-floating">
+                      <input
                         name="productQty"
                         type="number"
                         className="form-control"
@@ -64,8 +112,7 @@ const AddProduct = () => {
                         placeholder="Quantity"
                       />
                       <label htmlFor="floatingQty">Quantity</label>
-                        </div>
-                    
+                    </div>
                   </div>
                 </div>
 
@@ -80,7 +127,10 @@ const AddProduct = () => {
                   <label htmlFor="floatingPasswordConfirm">ImageUrl</label>
                 </div>
                 <div className="mb-3">
-                  <Form.Select aria-label="Default select example">
+                  <Form.Select
+                    name="supplier"
+                    aria-label="Default select example"
+                  >
                     <option>Select Supplier Name</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -89,12 +139,11 @@ const AddProduct = () => {
                 </div>
 
                 <div className="d-grid mb-2 col-6 offset-3">
-                  <button
+                  <input value="Add Product"
                     className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                     type="submit"
-                  >
-                    Add Product
-                  </button>
+                 />
+                  
                 </div>
               </form>
             </div>
