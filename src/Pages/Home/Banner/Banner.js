@@ -8,7 +8,7 @@ const Banner = () => {
     <Carousel className="container">
    {
      products.slice(0,6).map(pro =>(
-      <Carousel.Item>
+      <Carousel.Item key={pro._id}>
       <img
         className="d-block w-100"
         src={pro.imageUrl}

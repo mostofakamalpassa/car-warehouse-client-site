@@ -69,6 +69,33 @@ const Update = () => {
     console.log("product Update", result);
   };
 
+  const hendleDelvered = (ev)=>{
+
+    console.log(item);
+    if(item.qty < 1){
+       alert("item Quantity is not enough");
+
+       return;
+    }
+    fetch(`http://localhost:5000/item-delivered/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(item),
+    })
+      .then((res) => res.json())
+      .then((data) => {console.log(data)
+        toast("item delivered");
+         //setItem(data);
+
+      }
+      )
+      .catch((err) => console.log(err));
+
+    
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -158,14 +185,22 @@ const Update = () => {
                   </Form.Select>
                 </div>
 
-                <div className="d-grid mb-2 col-6 offset-3">
+                <div className="d-grid mb-2 col-6">
                   <input
-                    value="Update Product"
+                    value="Update Item"
                     className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                     type="submit"
                   />
+                  </div>
+                <div className="d-grid mb-2 col-6">
+                  <input
+                    value="Delivered" onClick={hendleDelvered}
+                    className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+                    type="button"
+                  />
                 </div>
               </form>
+
             </div>
           </div>
         </div>
