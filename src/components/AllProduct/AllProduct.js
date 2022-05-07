@@ -9,7 +9,7 @@ import useProducts from "../../hooks/useProducts";
 const AllProduct = () => {
   const [products, setProducts] = useProducts();
 
-  const submit2 = (id) => {
+  const deleteConfirmAlert = (id) => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -71,7 +71,7 @@ const AllProduct = () => {
           {
             products.map(pro=>(
               <tr key={pro._id}>
-              <td>{pro.imageUrl}</td>
+              <td style={{width:'150px'}}> <img className="img-thumbnail w-100" src={pro.imageUrl} alt={pro.productName}/></td>
               <td>{pro.productName}</td>
               <td>{pro.productDescription}</td>
               <td>{pro.price}</td>
@@ -82,7 +82,7 @@ const AllProduct = () => {
                   <FaPenSquare>
                   </FaPenSquare>
                 </Link>
-               || <FaTrash className="text-danger"  onClick={()=> submit2(pro._id)}></FaTrash></td>
+               || <FaTrash className="text-danger"  onClick={()=> deleteConfirmAlert(pro._id)}></FaTrash></td>
             </tr>
             ))
           }
