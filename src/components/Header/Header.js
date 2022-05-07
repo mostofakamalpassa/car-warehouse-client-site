@@ -10,6 +10,8 @@ import "./Header.css";
 const Header = () => {
   const [user] = useAuthState(auth);
 
+ // console.log("user", user);
+
   const handleSingout = () => {
     signOut(auth);
   };
@@ -25,7 +27,7 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <ActiveRoute to='/blog' className="nav-link">Blog</ActiveRoute>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <ActiveRoute to='/inventory' className="nav-link">Manage Inventory</ActiveRoute>
           </Nav>
           <Nav>
             {user ? (
@@ -39,7 +41,7 @@ const Header = () => {
                 Manage Items
                 </ActiveRoute>
             
-                <ActiveRoute className="nav-link" to="/manage-item">
+                <ActiveRoute className="nav-link" to="/my-items">
                 My items
                 </ActiveRoute>
             

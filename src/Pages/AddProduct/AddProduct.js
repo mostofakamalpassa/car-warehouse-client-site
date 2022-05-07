@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import AllProduct from "../../components/AllProduct/AllProduct";
+import auth from "../../firebase.init";
 const AddProduct = () => {
+  const [user] = useAuthState(auth);
   const heandleSubmitProducts = (ev) => {
     ev.preventDefault();
     console.log(ev)
@@ -20,6 +23,7 @@ const AddProduct = () => {
       qty,
       supplier,
       imageUrl,
+      email:user.email
     };
 
     if(!productName || productName.trim().length <3){
