@@ -14,7 +14,7 @@ const Home = () => {
       <Container className="my-4">
         <h3 className="text-center bg-success py-3 text-light">Inventory Items</h3>
        <Row xs={1} md={3} className="g-4">
-           {products.map(product =>  <SingleItem product={product} key={product._id}></SingleItem>)}
+           {products.slice(0,6).map(product =>  <SingleItem product={product} key={product._id}></SingleItem>)}
          
         </Row>
      

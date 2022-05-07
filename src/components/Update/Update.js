@@ -1,11 +1,23 @@
-import React, { useEffect } from "react";
-import { Form } from "react-bootstrap";
+import { Toast } from "bootstrap";
+import React, { useEffect, useState } from "react";
+import { Form, } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import AllProduct from "../../components/AllProduct/AllProduct";
-const AddProduct = () => {
-  const heandleSubmitProducts = (ev) => {
+
+const Update = () => {
+  const { id } = useParams();
+  const [item, setItem] = useState({});
+  // Load data
+  useEffect(() => {
+    const url = `http://localhost:5000/singleItem/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setItem(data));
+  }, []);
+
+  const handleUpdateItem = (ev) => {
     ev.preventDefault();
-    console.log(ev)
+    console.log(ev);
     const productName = ev.target.productName.value;
     const productDescription = ev.target.productDescription.value;
     const price = ev.target.productPrice.value;
@@ -22,42 +34,39 @@ const AddProduct = () => {
       imageUrl,
     };
 
-    if(!productName || productName.trim().length <3){
-      toast(" Product name is required")
+    if (!productName || productName.trim().length < 3) {
+      toast(" Product name is required");
       return;
     }
 
-    if(!price || price<=0){
-      toast(" Product Price is required")
+    if (!price || price <= 0) {
+      toast(" Product Price is required");
       return;
     }
-    if(!qty || qty <= 0){
-      toast(" Product Qty is required")
+    if (!qty || qty <= 0) {
+      toast(" Product Qty is required");
       return;
     }
-    if(!imageUrl || imageUrl.trim().length <= 10){
-      toast(" Image  is required")
+    if (!imageUrl || imageUrl.trim().length <= 10) {
+      toast(" Image  is required");
       return;
     }
 
-  
+    fetch(`http://localhost:5000/product/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((data) => {console.log(data)
+        toast("Item update");
+      }
+      )
+      .catch((err) => console.log(err));
 
-      fetch('http://localhost:5000/add-products',{
-        method:"POST",
-        headers:{
-          "content-type":"application/json"
-        },
-        body: JSON.stringify(result)
-      }).then(res => res.json())
-      .then(data =>{
-        console.log(data);
-        toast("item success fully added");
-      } )
-      .catch(err => console.log(err))
-
- 
-
-    console.log("product insertd", result);
+    console.log("product Update", result);
   };
 
   return (
@@ -67,9 +76,9 @@ const AddProduct = () => {
           <div className="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
             <div className="card-body p-4 p-sm-5">
               <h5 className="card-title text-center mb-5 fw-light fs-5">
-                Add Product
+                Update Product
               </h5>
-              <form onSubmit={heandleSubmitProducts}>
+              <form onSubmit={handleUpdateItem}>
                 <div className="form-floating mb-3">
                   <input
                     type="text"
@@ -77,6 +86,7 @@ const AddProduct = () => {
                     className="form-control"
                     id="floatingInputUsername"
                     placeholder="Product Name"
+                    defaultValue={item?.productName}
                     required
                   />
                   <label htmlFor="productName">Product Name</label>
@@ -88,6 +98,7 @@ const AddProduct = () => {
                     name="productDescription"
                     className="form-control"
                     id="floatingInputDescription"
+                    defaultValue={item?.productDescription}
                   ></textarea>
                   <label htmlFor="floatingInputDescription">
                     Product Description
@@ -103,6 +114,7 @@ const AddProduct = () => {
                         className="form-control"
                         id="floatingPrice"
                         placeholder="price"
+                        defaultValue={item.price}
                       />
                       <label htmlFor="floatingPrice">Price</label>
                     </div>
@@ -115,6 +127,7 @@ const AddProduct = () => {
                         className="form-control"
                         id="floatingQty"
                         placeholder="Quantity"
+                        defaultValue={item?.qty}
                       />
                       <label htmlFor="floatingQty">Quantity</label>
                     </div>
@@ -128,6 +141,7 @@ const AddProduct = () => {
                     className="form-control"
                     id="floatingPasswordConfirm"
                     placeholder="image url"
+                    defaultValue={item?.imageUrl}
                   />
                   <label htmlFor="floatingPasswordConfirm">ImageUrl</label>
                 </div>
@@ -135,6 +149,7 @@ const AddProduct = () => {
                   <Form.Select
                     name="supplier"
                     aria-label="Default select example"
+                    defaultValue={item?.supplier}
                   >
                     <option>Select Supplier Name</option>
                     <option value="1">One</option>
@@ -144,21 +159,19 @@ const AddProduct = () => {
                 </div>
 
                 <div className="d-grid mb-2 col-6 offset-3">
-                  <input value="Add Product"
+                  <input
+                    value="Update Product"
                     className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                     type="submit"
-                 />
-                  
+                  />
                 </div>
               </form>
             </div>
           </div>
         </div>
-
-        <AllProduct></AllProduct>
       </div>
     </div>
   );
 };
 
-export default AddProduct;
+export default Update;

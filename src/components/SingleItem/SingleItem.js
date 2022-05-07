@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const SingleItem = (props) => {
     console.log(props);
-    const {productName, price, qty, imageUrl,supplier,productDescription} = props.product;
+    const {productName, price, qty, imageUrl,supplier,productDescription,_id} = props.product;
     return (
           <Col>
             <Card className="shadow-lg" style={{"borderTop":"5px solid red"}}>
@@ -16,7 +16,7 @@ const SingleItem = (props) => {
                 </Card.Text>
                 <Card.Subtitle >Price = {price}$ <span>Qty = {qty}</span></Card.Subtitle>
                 <Card.Subtitle className="pt-2">Supplier = {supplier}</Card.Subtitle>
-                <Button className='mt-3 mx-auto w-100 fw-bold'><Link to='/inventory/' className='text-light text-decoration-none'>Update</Link></Button>
+                <Button className='mt-3 mx-auto w-100 fw-bold'><Link to={`/inventory/${_id}`} className='text-light text-decoration-none'>Update</Link></Button>
               </Card.Body>
             </Card>
           </Col> 
