@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Container, TabContainer, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTrash, FaPenSquare } from 'react-icons/fa';
 import auth from '../../firebase.init';
@@ -55,7 +55,7 @@ const MyItems = () => {
         );
     }
     return (
-        <div>
+        <Container>
           <Table responsive="sm">
             <thead>
               <tr>
@@ -94,7 +94,7 @@ const MyItems = () => {
           </Table>
          
          
-        </div>
+        </Container>
       );
 };
 

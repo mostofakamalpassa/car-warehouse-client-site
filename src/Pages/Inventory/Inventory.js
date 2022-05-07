@@ -5,7 +5,7 @@ import AllProduct from '../../components/AllProduct/AllProduct';
 
 const Inventory = () => {
     return (
-        <Container fluid>
+        <Container>
             <Button>
                 <Link  className='text-light' to='/add'>Add New Item</Link>
             </Button>
