@@ -19,6 +19,7 @@ import Update from './components/Update/Update';
 import AllProduct from './components/AllProduct/AllProduct';
 import Inventory from './Pages/Inventory/Inventory';
 import MyItems from './Pages/MyItems/MyItems';
+import ReStock from './components/ReStock/ReStock';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/register' element={<Register></Register>}></Route>
        <Route path='/my-items' element={<MyItems></MyItems>}></Route>
+       <Route path='/restock/:id' element={<ReStock></ReStock>}></Route>
        {/* <Route path='/inventory' element={<AllProduct></AllProduct>}></Route> */}
        <Route path='/inventory' element={<RequireAuth>
         <Inventory></Inventory>

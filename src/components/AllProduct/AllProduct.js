@@ -9,7 +9,7 @@ import useProducts from "../../hooks/useProducts";
 
 const AllProduct = () => {
   const [products, setProducts] = useProducts();
-  const[item, setItem] = useState({});
+  // const[item, setItem] = useState({});
   const deleteConfirmAlert = (id) => {
     confirmAlert({
       customUI: ({ onClose }) => {
@@ -58,11 +58,11 @@ const AllProduct = () => {
  
    
    const filterItem =  products.filter(pro => pro._id === id);
-   const convertToObjed = Object.assign(filterItem);
-   setItem(convertToObjed);
-   console.log("filterItem", convertToObjed);
-   console.log(item);
-    if(item?.qty < 1){
+    const item = filterItem;
+  //  setItem(filterItem);
+   console.log("filterItem", filterItem);
+   console.log('iii',item[0]);
+    if(item[0]?.qty < 1 ){
        alert("item Quantity is not enough");
 
        return;
@@ -72,7 +72,7 @@ const AllProduct = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(item),
+      body: JSON.stringify(item[0]),
     })
       .then((res) => res.json())
       .then((data) => {console.log(data)
@@ -115,10 +115,17 @@ const AllProduct = () => {
               <td>{pro.supplier}</td>
               <td>
                 <Button className="btn btn-sm" onClick={()=>hendleDelvered(pro?._id)}>Delivered</Button>
+                <Link to={`/restock/${pro._id}`}>
+                  <Button className="btn btn-sm mx-2">
+                    ReStock
+                  </Button>
+                </Link>
                 <Link to={`/inventory/${pro._id}`}>
                   <FaPenSquare className="fs-2">
                   </FaPenSquare>
                 </Link>
+
+
                || <FaTrash  role="button" className="text-danger fs-2"  onClick={()=> deleteConfirmAlert(pro._id)}></FaTrash></td>
             </tr>
             ))

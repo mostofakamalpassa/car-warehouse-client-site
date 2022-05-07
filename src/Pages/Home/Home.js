@@ -20,7 +20,7 @@ const Home = () => {
        
         </Row>
         <Row>
-        <Col className="col-sm-6 offset-sm-4 my-5">
+        <Col className="col-sm-2 offset-sm-5 my-5">
         <Button className="py-3">
            <Link className="text-light text-decoration-none" to='/inventory'>Manage Inventory</Link>
          </Button> 
