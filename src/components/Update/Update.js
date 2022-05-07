@@ -86,8 +86,9 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((data) => {console.log(data)
+       // setItem(data);
         toast("item delivered");
-         //setItem(data);
+         
 
       }
       )
@@ -176,8 +177,9 @@ const Update = () => {
                   <Form.Select
                     name="supplier"
                     aria-label="Default select example"
-                    defaultValue={item?.supplier}
+                    
                   >
+                    <option defaultValue={item?.supplier}>{item?.supplier}</option>
                     <option>Select Supplier Name</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -185,19 +187,21 @@ const Update = () => {
                   </Form.Select>
                 </div>
 
-                <div className="d-grid mb-2 col-6">
+                <div className="row">
+                <div className="d-grid mb-2 col-5">
                   <input
                     value="Update Item"
                     className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                     type="submit"
                   />
                   </div>
-                <div className="d-grid mb-2 col-6">
+                <div className="d-grid mb-2 col-5">
                   <input
-                    value="Delivered" onClick={hendleDelvered}
+                    value="Delivered Item" onClick={hendleDelvered}
                     className="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                     type="button"
                   />
+                </div>
                 </div>
               </form>
 

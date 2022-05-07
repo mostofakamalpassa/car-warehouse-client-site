@@ -16,6 +16,8 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import { Routes,Route } from 'react-router-dom';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import Update from './components/Update/Update';
+import AllProduct from './components/AllProduct/AllProduct';
+import Inventory from './Pages/Inventory/Inventory';
 
 function App() {
   return (
@@ -32,7 +34,10 @@ function App() {
        <Route path='/blog' element={<Blog></Blog>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/register' element={<Register></Register>}></Route>
+       {/* <Route path='/inventory' element={<AllProduct></AllProduct>}></Route> */}
+       <Route path='/inventory' element={<Inventory></Inventory>}></Route>
        <Route path='/inventory/:id' element={<RequireAuth>
+
         <Update></Update>
        </RequireAuth>}></Route>
        <Route path='/add' element={

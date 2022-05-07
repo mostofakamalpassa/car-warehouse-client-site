@@ -35,7 +35,7 @@ const Header = () => {
                   Add items
                 </ActiveRoute>
             
-                <ActiveRoute className="nav-link" to="/manage-item">
+                <ActiveRoute className="nav-link" to="/inventory">
                 Manage Items
                 </ActiveRoute>
             

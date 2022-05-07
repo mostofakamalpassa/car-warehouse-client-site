@@ -58,12 +58,14 @@ const AllProduct = () => {
       <Table responsive="sm">
         <thead>
           <tr>
-            <th>ID</th>
+          <th>Image</th>
             <th>Product Name</th>
             <th>Product Description</th>
             <th>Price</th>
+            <th>Qty</th>
+
             <th>Supplier</th>
-            <th>Image</th>
+        
             <th>Action</th>
           </tr>
         </thead>
