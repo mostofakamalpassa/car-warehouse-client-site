@@ -113,7 +113,7 @@ const AllProduct = () => {
               <td>{pro.price}</td>
               <td>{pro.qty}</td>
               <td>{pro.supplier}</td>
-              <td>
+              <td width="270">
                 <Button className="btn btn-sm" onClick={()=>hendleDelvered(pro?._id)}>Delivered</Button>
                 <Link to={`/restock/${pro._id}`}>
                   <Button className="btn btn-sm mx-2">

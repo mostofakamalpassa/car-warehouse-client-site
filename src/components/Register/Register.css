@@ -2,7 +2,8 @@
     width: 45%;
     /* Link to your background image using in the property below! */
     background: scroll center url('https://i.ibb.co/R9XvVkW/signin-image.jpg');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   
   .btn-login {

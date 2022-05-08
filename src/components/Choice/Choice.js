@@ -59,7 +59,7 @@ const Choice = () => {
           </Row>
         </Col>
         <Col sm="5">
-            <img className="" src="images/icons/h61.jpg" alt="" />
+            <img className="w-100" src="images/icons/h61.jpg" alt="" />
         </Col>
       </Row>
     </div>

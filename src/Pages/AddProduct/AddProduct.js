@@ -58,6 +58,7 @@ const AddProduct = () => {
       .then(data =>{
         console.log(data);
         toast("item success fully added");
+        console.log('reset', ev);
       } )
       .catch(err => console.log(err))
 
