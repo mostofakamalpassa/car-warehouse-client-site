@@ -26,6 +26,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            <ActiveRoute to='/' className="nav-link">Home</ActiveRoute>
             <ActiveRoute to='/blog' className="nav-link">Blog</ActiveRoute>
             <ActiveRoute to='/inventory' className="nav-link">Manage Inventory</ActiveRoute>
           </Nav>

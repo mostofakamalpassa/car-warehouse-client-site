@@ -60,8 +60,8 @@ const AllProduct = () => {
    const filterItem =  products.filter(pro => pro._id === id);
     const item = filterItem;
   //  setItem(filterItem);
-   console.log("filterItem", filterItem);
-   console.log('iii',item[0]);
+   //console.log("filterItem", filterItem);
+   //console.log('iii',item[0]);
     if(item[0]?.qty < 1 ){
        alert("item Quantity is not enough");
 

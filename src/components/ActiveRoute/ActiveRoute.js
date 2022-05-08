@@ -11,7 +11,7 @@ const ActiveRoute =({ children, to, ...props }) => {
     return (
       <div>
         <Link
-          style={{ color: match ? "red" : "white" }}
+          style={{ color: match ? "#272422" : "white" , fontWeight: match ?'bold':"normal"}}
           to={to}
           {...props}
         >

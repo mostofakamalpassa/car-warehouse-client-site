@@ -9,6 +9,7 @@ import Banner from "./Banner/Banner";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Choice from "../../components/Choice/Choice";
 
 
 const Home = () => {
@@ -81,11 +82,14 @@ const Home = () => {
         <Slider {...settings}>
         {suppliers.slice(0,15).map(sup =>  <Supplier supplier={sup} key={sup.id}></Supplier>)}
         </Slider>
-          
-         
-       
         </Row>
       </Container>
+
+      <Container className="py-5">
+         <Choice></Choice>
+      </Container>
+
+
     </div>
   );
 };

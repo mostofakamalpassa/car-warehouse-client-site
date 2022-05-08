@@ -4,7 +4,7 @@ import './Footer.css';
 
 const FooterBoot = () => {
     return (
-        <footer className="footer-area2 pt-5 mt-3 bg-primary">
+        <footer className="footer-area2 pt-5 mt-3 bg-secondary" style={{background:"#272422"}}>
       
         <div className="background-footer">
             <div className="container">
