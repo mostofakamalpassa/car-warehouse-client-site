@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import AllProduct from "../../components/AllProduct/AllProduct";
@@ -58,7 +58,7 @@ const AddProduct = () => {
       .then(data =>{
         console.log(data);
         toast("item success fully added");
-        console.log('reset', ev);
+        ev.target.reset();
       } )
       .catch(err => console.log(err))
 
@@ -68,6 +68,7 @@ const AddProduct = () => {
   };
 
   return (
+    <>
     <div className="container">
       <div className="row">
         <div className="col-lg-10 col-xl-9 mx-auto">
@@ -160,9 +161,13 @@ const AddProduct = () => {
           </div>
         </div>
 
-        <AllProduct></AllProduct>
+       
       </div>
     </div>
+    <Container fluid>
+    <AllProduct></AllProduct>
+    </Container>
+    </>
   );
 };
 

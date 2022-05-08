@@ -30,6 +30,7 @@ Live WebSite Link:  [https://car-warehouse-client.web.app/](https://car-warehous
 - React carousel
 - React spring (animation)
 - firebase hosting 
+- React icon 
 - etc
 
 

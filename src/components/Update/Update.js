@@ -10,7 +10,7 @@ const Update = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
 
-  console.log(suppliers);
+  // console.log(suppliers);
   // Load data
   useEffect(() => {
     const url = `https://warm-mesa-46770.herokuapp.com/singleItem/${id}`;
@@ -66,6 +66,7 @@ const Update = () => {
       .then((res) => res.json())
       .then((data) => {console.log(data)
         toast("Item update");
+        ev.target.reset();
       }
       )
       .catch((err) => console.log(err));
@@ -91,8 +92,8 @@ const Update = () => {
       .then((res) => res.json())
       .then((data) => {console.log(data)
        // setItem(data);
+
         toast("item delivered");
-         
 
       }
       )

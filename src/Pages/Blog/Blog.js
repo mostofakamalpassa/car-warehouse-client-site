@@ -18,7 +18,7 @@ const Blog = () => {
           <Col>
             {blogs.map((blog) => (
               <Card className="p-4 my-2" key={blog.id}>
-                <Card.Title>{blog.questionName}</Card.Title>
+                <Card.Title className="text-center bg-secondary text-light py-2">{blog.questionName}</Card.Title>
                 <Card.Body>
                   <Card.Subtitle>{blog.Answer?.def}</Card.Subtitle>
 
@@ -26,18 +26,18 @@ const Blog = () => {
                   blog.Answer?.difference1.length > 0 ? (
                     <Row className="my-3">
                       <Col>
-                        <ul class="list-group list-group-flush">
+                        <ul className="list-group list-group-flush">
                           {blog.Answer?.difference1.map((authori, index) => (
-                            <li class="list-group-item" key={index}>
+                            <li className="list-group-item" key={index}>
                               {authori}
                             </li>
                           ))}
                         </ul>
                       </Col>
                       <Col>
-                        <ul class="list-group list-group-flush">
+                        <ul className="list-group list-group-flush">
                           {blog.Answer?.difference2.map((authori, index) => (
-                            <li class="list-group-item" key={index}>
+                            <li className="list-group-item" key={index}>
                               {authori}
                             </li>
                           ))}

@@ -9,6 +9,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import "./Login.css";
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import Loading from "../Loading/Loading";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -62,6 +64,7 @@ const Login = () => {
   };
 
   if (loading) {
+    <Loading></Loading>
     return;
   }
   if (error) {
@@ -132,7 +135,7 @@ const Login = () => {
                   className="btn btn-lg btn-google btn-login fw-bold text-uppercase"
                   type="submit" onClick={handleSigneGoole}
                 >
-                  <i className="fab fa-google me-2"></i> Sign up with Google
+                  <FaGoogle className="me-2 fs-2"></FaGoogle> Sign up with Google
                 </button>
               </div>
 
@@ -141,7 +144,7 @@ const Login = () => {
                   className="btn btn-lg btn-facebook btn-login fw-bold text-uppercase"
                   type="submit" onClick={()=> signInWithGithub()}
                 >
-                  <i className="fab fa-facebook-f me-2"></i> Sign up with
+                  <FaGithub className="me-2 fs-2"></FaGithub> Sign up with
                   GitHub
                 </button>
               </div>
