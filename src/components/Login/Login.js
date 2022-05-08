@@ -38,7 +38,13 @@ const Login = () => {
   };
 
 
-
+  if (error) {
+    //console.log('error', error.message);
+    toast(error?.message);
+  }
+  if(loading){
+    <Loading></Loading>
+  }
   const handleLogin = (event) => {
     event.preventDefault();
 
@@ -46,10 +52,27 @@ const Login = () => {
     const password = event.target.password.value;
     if (email && password) {
       signInWithEmailAndPassword(email, password);
-      toast("Login success full");
+      if(user){
+        toast("Login success full");
+      }
+      
       return;
     }
-    toast("place give valid email and password");
+
+    if(!email && !password){
+      toast("Place give valid email and password!");
+      return;
+    }
+    if(!email ){
+      toast("Invalid email");
+     // return;
+    }
+    if(!password){
+      toast("Invalid Password");
+     // return;
+    }
+
+    
   };
 
   const handleResetPassword = (event) => {
@@ -58,20 +81,17 @@ const Login = () => {
     if (email) {
       sendPasswordResetEmail(email);
       toast("password reset send");
+      return
     } else {
       toast("place valid Email address");
     }
   };
 
-  
-  if (error) {
-    //console.log('error', error.message);
-    toast(error.message);
-  }
+ 
 
-  if(loading){
-    <Loading></Loading>
-  }
+
+
+  
 
 
   return (
