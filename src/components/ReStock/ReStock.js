@@ -7,7 +7,7 @@ const ReStock = () => {
     const [item, setItem] = useState({});
     // Load data
     useEffect(() => {
-      const url = `http://localhost:5000/singleItem/${id}`;
+      const url = `https://warm-mesa-46770.herokuapp.com/singleItem/${id}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setItem(data));
@@ -32,7 +32,7 @@ const ReStock = () => {
       }
    
   
-      fetch(`http://localhost:5000/restock/${id}`, {
+      fetch(`https://warm-mesa-46770.herokuapp.com/restock/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

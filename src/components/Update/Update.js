@@ -13,7 +13,7 @@ const Update = () => {
   console.log(suppliers);
   // Load data
   useEffect(() => {
-    const url = `http://localhost:5000/singleItem/${id}`;
+    const url = `https://warm-mesa-46770.herokuapp.com/singleItem/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
@@ -56,7 +56,7 @@ const Update = () => {
       return;
     }
 
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`https://warm-mesa-46770.herokuapp.com/product/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -81,7 +81,7 @@ const Update = () => {
 
        return;
     }
-    fetch(`http://localhost:5000/item-delivered/${id}`, {
+    fetch(`https://warm-mesa-46770.herokuapp.com/item-delivered/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

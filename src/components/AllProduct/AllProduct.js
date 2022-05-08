@@ -37,7 +37,7 @@ const AllProduct = () => {
   const handleDelete = id =>{
 
     console.log('delete id = ', id);
-    fetch(`http://localhost:5000/product/${id}`,{
+    fetch(`https://warm-mesa-46770.herokuapp.com/product/${id}`,{
       method:'DELETE'
     }).then(res => res.json())
     .then(data => {
@@ -67,7 +67,7 @@ const AllProduct = () => {
 
        return;
     }
-    fetch(`http://localhost:5000/item-delivered/${id}`, {
+    fetch(`https://warm-mesa-46770.herokuapp.com/item-delivered/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

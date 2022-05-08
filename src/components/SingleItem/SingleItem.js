@@ -3,7 +3,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const SingleItem = (props) => {
-    console.log(props);
+  //  console.log(props);
     const {productName, price, qty, imageUrl,supplier,productDescription,_id} = props.product;
     return (
           <Col>

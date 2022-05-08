@@ -38,7 +38,7 @@ const MyItems = () => {
     const handleDelete = id =>{
   
       console.log('delete id = ', id);
-      fetch(`http://localhost:5000/product/${id}`,{
+      fetch(`https://warm-mesa-46770.herokuapp.com/product/${id}`,{
         method:'DELETE'
       }).then(res => res.json())
       .then(data => {

@@ -48,7 +48,7 @@ const AddProduct = () => {
 
   
 
-      fetch('http://localhost:5000/add-products',{
+      fetch('https://warm-mesa-46770.herokuapp.com/add-products',{
         method:"POST",
         headers:{
           "content-type":"application/json"
