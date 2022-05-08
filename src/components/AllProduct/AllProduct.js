@@ -108,8 +108,8 @@ const AllProduct = () => {
             products.map(pro=>(
               <tr key={pro._id}>
               <td style={{width:'150px'}}> <img className="img-thumbnail w-100" src={pro.imageUrl} alt={pro.productName}/></td>
-              <td>{pro.productName}</td>
-              <td>{pro.productDescription}</td>
+              <td width="250">{pro.productName}</td>
+              <td width="500">{pro.productDescription}</td>
               <td>{pro.price}</td>
               <td>{pro.qty}</td>
               <td>{pro.supplier}</td>

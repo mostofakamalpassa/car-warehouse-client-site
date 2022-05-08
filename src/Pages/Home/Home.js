@@ -69,12 +69,9 @@ const Home = () => {
          </Button> 
         </Col> 
         </Row>
-
-
-       
-        
      
       </Container>
+      
 
       <Container>
       <h3 className="text-center bg-success py-3 text-light">Supplier information</h3>
