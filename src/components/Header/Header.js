@@ -28,7 +28,7 @@ const Header = () => {
           <Nav className="me-auto">
             <ActiveRoute to='/' className="nav-link">Home</ActiveRoute>
             <ActiveRoute to='/blog' className="nav-link">Blog</ActiveRoute>
-            <ActiveRoute to='/inventory' className="nav-link">Manage Inventory</ActiveRoute>
+            <ActiveRoute to='/manage-inventory' className="nav-link">Manage Inventory</ActiveRoute>
           </Nav>
           <Nav>
             {user ? (

@@ -58,6 +58,7 @@ const AllProduct = () => {
  
    
    const filterItem =  products.filter(pro => pro._id === id);
+
     const item = filterItem;
   //  setItem(filterItem);
    //console.log("filterItem", filterItem);
@@ -77,7 +78,9 @@ const AllProduct = () => {
       .then((res) => res.json())
       .then((data) => {console.log(data)
        // setItem(data);
+     
         toast("item delivered");
+       // setProducts(filterItem);
          
 
       }

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Form, } from "react-bootstrap";
+import { Col, Form, Row, } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useSupplier from "../../hooks/useSupplier";
@@ -167,7 +167,9 @@ const Update = () => {
                   </div>
                 </div>
 
-                <div className="form-floating mb-3">
+                <Row>
+                  <Col sm="7">
+                  <div className="form-floating mb-3">
                   <input
                     name="imageUrl"
                     type="text"
@@ -192,8 +194,14 @@ const Update = () => {
                     }
                   </Form.Select>
                 </div>
+                  </Col>
+                  <Col sm="5">
+                    <img className="w-100" src={item?.imageUrl} alt="" />
+                  </Col>
+                </Row>
+              
 
-                <div className="row">
+                <div className="row mt-3">
                 <div className="d-grid mb-2 col-5">
                   <input
                     value="Update Item"
