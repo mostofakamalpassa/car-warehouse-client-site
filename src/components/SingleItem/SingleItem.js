@@ -8,11 +8,11 @@ const SingleItem = (props) => {
     return (
           <Col>
             <Card className="shadow-lg" style={{"borderTop":"5px solid red"}}>
-              <Card.Img variant="top" src={imageUrl} />
+              <Card.Img variant="top" style={{height:"200px", width:'100%', backgroundSize:'contain'}} src={imageUrl} />
               <Card.Body>
                 <Card.Title className='bg-dark p-2 text-info rounded'>{productName}</Card.Title>
                 <Card.Text className='my-3 fs-6'>
-                 {productDescription}
+                 {productDescription.length < 100 ? productDescription : ` ${productDescription.slice(0, 100)} ...`}
                 </Card.Text>
                 <Card.Subtitle className='d-flex justify-content-between' >
                   <h6>Price = {price}$</h6>
