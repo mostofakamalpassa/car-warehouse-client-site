@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const useProducts = () => {
 
     const[products, setProducts] = useState([]);
+    const[updateData, setUpdateData] = useState({});
 
     useEffect(()=>{
        const data = async()=>{
@@ -16,9 +17,9 @@ const useProducts = () => {
         }
        };
        data();
-    },[]);
+    },[updateData]);
 
-    return [products, setProducts];
+    return [products, setProducts, updateData, setUpdateData];
 };
 
 export default useProducts;

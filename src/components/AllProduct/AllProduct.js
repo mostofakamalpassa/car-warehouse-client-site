@@ -6,9 +6,10 @@ import { FaTrash, FaPenSquare } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useProducts from "../../hooks/useProducts";
+import Loading from "../Loading/Loading";
 
 const AllProduct = () => {
-  const [products, setProducts] = useProducts();
+  const [products, setProducts, updateData, setUpdateData] = useProducts();
   // const[item, setItem] = useState({});
   const deleteConfirmAlert = (id) => {
     confirmAlert({
@@ -47,11 +48,7 @@ const AllProduct = () => {
 
     //  console.log('delete Id', result);
       setProducts(result);
-    }
-      
-     
-      
-      );
+    } );
   }
 
   const hendleDelvered = (id)=>{
@@ -78,8 +75,9 @@ const AllProduct = () => {
       .then((res) => res.json())
       .then((data) => {console.log(data)
        // setItem(data);
-     
+        setUpdateData(item[0])
         toast("item delivered");
+        
        // setProducts(filterItem);
          
 
@@ -92,6 +90,7 @@ const AllProduct = () => {
 
   return (
     <div>
+       {  products.length <=0  ? <Loading></Loading>:  ""}
       <Table responsive="sm">
         <thead>
           <tr>
@@ -127,8 +126,6 @@ const AllProduct = () => {
                   <FaPenSquare className="fs-2">
                   </FaPenSquare>
                 </Link>
-
-
                || <FaTrash  role="button" className="text-danger fs-2"  onClick={()=> deleteConfirmAlert(pro._id)}></FaTrash></td>
             </tr>
             ))

@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 import './Register.css';
 
@@ -51,6 +52,9 @@ const Register = () => {
     }
   };
 
+  if(loading){
+    <Loading></Loading>
+  }
     return (
         <div className="container">
         <div className="row">

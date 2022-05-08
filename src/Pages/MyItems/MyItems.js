@@ -1,15 +1,21 @@
 import React from 'react';
 import { Container, TabContainer, Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash, FaPenSquare } from 'react-icons/fa';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { confirmAlert } from 'react-confirm-alert';
 import useProducts from '../../hooks/useProducts';
+import Loading from '../../components/Loading/Loading';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [products, setProducts] = useProducts();
+    const navigate = useNavigate();
+
+    if(!user){
+      navigate('/login')
+    }
 
     const deleteConfirmAlert = (id) => {
       confirmAlert({
@@ -55,7 +61,10 @@ const MyItems = () => {
         );
     }
     return (
+      <>
+       {  products.length <=0  ? <Loading></Loading>:  ""}
         <Container>
+          
           <Table responsive="sm">
             <thead>
               <tr>
@@ -72,9 +81,9 @@ const MyItems = () => {
             </thead>
             <tbody>
               {
-                products.filter(pro => pro?.email === user.email).map(pro=>(
+                products.filter(pro => pro?.email === user?.email).map(pro=>(
                   <tr key={pro._id}>
-                  <td style={{width:'150px'}}> <img className="img-thumbnail w-100" src={pro.imageUrl} alt={pro.productName}/></td>
+                  <td style={{width:'150px'}}> <img className="img-thumbnail w-100" src={pro?.imageUrl} alt={pro?.productName}/></td>
                   <td>{pro.productName}</td>
                   <td>{pro.productDescription}</td>
                   <td>{pro.price}</td>
@@ -95,6 +104,7 @@ const MyItems = () => {
          
          
         </Container>
+        </>
       );
 };
 

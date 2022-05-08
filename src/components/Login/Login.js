@@ -63,15 +63,15 @@ const Login = () => {
     }
   };
 
-  if (loading) {
-    <Loading></Loading>
-    return;
-  }
+  
   if (error) {
     //console.log('error', error.message);
     toast(error.message);
   }
 
+  if(loading){
+    <Loading></Loading>
+  }
 
 
   return (

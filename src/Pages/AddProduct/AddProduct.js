@@ -4,10 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import AllProduct from "../../components/AllProduct/AllProduct";
 import auth from "../../firebase.init";
+import useProducts from "../../hooks/useProducts";
 import useSupplier from "../../hooks/useSupplier";
 const AddProduct = () => {
   const [user] = useAuthState(auth);
   const[suppliers] = useSupplier();
+  const[products, setProducts, updateData, setUpdateData] = useProducts();
   const heandleSubmitProducts = (ev) => {
     ev.preventDefault();
     console.log(ev)
@@ -58,6 +60,7 @@ const AddProduct = () => {
       .then(data =>{
         console.log(data);
         toast("item success fully added");
+        setUpdateData(result);
         ev.target.reset();
       } )
       .catch(err => console.log(err))

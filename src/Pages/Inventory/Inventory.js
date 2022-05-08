@@ -9,6 +9,7 @@ const Inventory = () => {
             <Button>
                 <Link  className='text-light' to='/add'>Add New Item</Link>
             </Button>
+            
             <AllProduct></AllProduct>
         </Container>
     );
