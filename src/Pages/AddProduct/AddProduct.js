@@ -4,8 +4,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import AllProduct from "../../components/AllProduct/AllProduct";
 import auth from "../../firebase.init";
+import useSupplier from "../../hooks/useSupplier";
 const AddProduct = () => {
   const [user] = useAuthState(auth);
+  const[suppliers] = useSupplier();
   const heandleSubmitProducts = (ev) => {
     ev.preventDefault();
     console.log(ev)
@@ -141,9 +143,7 @@ const AddProduct = () => {
                     aria-label="Default select example"
                   >
                     <option>Select Supplier Name</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {suppliers.map(sup =>(<option key={sup.id} value={sup.serviceName}>{sup.serviceName}</option>))}
                   </Form.Select>
                 </div>
 

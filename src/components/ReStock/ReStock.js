@@ -32,7 +32,7 @@ const ReStock = () => {
       }
    
   
-      fetch(`http://localhost:5000/product/${id}`, {
+      fetch(`http://localhost:5000/restock/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -49,33 +49,7 @@ const ReStock = () => {
       console.log("product Update", result);
     };
   
-    const hendleDelvered = (ev)=>{
   
-      console.log(item);
-      if(item.qty < 1){
-         alert("item Quantity is not enough");
-  
-         return;
-      }
-      fetch(`http://localhost:5000/item-delivered/${id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(item),
-      })
-        .then((res) => res.json())
-        .then((data) => {console.log(data)
-         // setItem(data);
-          toast("item delivered");
-           
-  
-        }
-        )
-        .catch((err) => console.log(err));
-  
-      
-    }
 
     return (
         <div className="container">

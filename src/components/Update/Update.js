@@ -1,12 +1,16 @@
-import { Toast } from "bootstrap";
+
 import React, { useEffect, useState } from "react";
 import { Form, } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useSupplier from "../../hooks/useSupplier";
 
 const Update = () => {
+  const[suppliers] = useSupplier();
   const { id } = useParams();
   const [item, setItem] = useState({});
+
+  console.log(suppliers);
   // Load data
   useEffect(() => {
     const url = `http://localhost:5000/singleItem/${id}`;
@@ -180,10 +184,11 @@ const Update = () => {
                     
                   >
                     <option defaultValue={item?.supplier}>{item?.supplier}</option>
-                    <option>Select Supplier Name</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {suppliers.map(sup =>(
+                    <option key={sup.id} defaultValue={sup.serviceName}>{sup.serviceName}</option>
+                    )
+                    )
+                    }
                   </Form.Select>
                 </div>
 

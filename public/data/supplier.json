@@ -1,0 +1,60 @@
+[
+    {
+       "id":1,
+       "serviceName":"Aston Martin",
+        "serviceSummary":" German Engineer August Horch founded the company August Horch & Cie. Motorwagenwerke AG, in 1899",
+       "barandImage":"images/car-logo/bentley-logo.png"
+    },
+     {
+       "id":2,
+       "serviceName":"BMW",
+        "serviceSummary":"BMW started its operation in 1912 and was formed by the merger of three German companies",
+       "barandImage":"images/car-logo/bmw-logo.png"
+    },
+    {
+       "id":3,
+       "serviceName":"Cadillac",
+        "serviceSummary":"Cadillac was named after the great French explorer Antoine Laumet de La Mothe, Sieur de Cadillac, who founded Detroit, Michigan in 1701",
+       "barandImage":"images/car-logo/ferrari-logo.png"
+    },
+     {
+       "id":4,
+       "serviceName":"Chevrolet",
+       "serviceSummary":"Chevrolet, also called Chevy, was founded in 1911 by Louis Chevrolet and William C Durant in Detroit, as the Chevrolet Motor Company.",
+       "barandImage":"images/car-logo/ford-logo.png"
+    },
+    {
+       "id":5,
+       "serviceName":"Datsun",
+       "serviceSummary":"Datsun is a Japanese company associated with the production of small and affordable cars.",
+       "barandImage":"images/car-logo/honda-logo.png"
+    },
+    {
+       "id":6,
+       "serviceName":"Ferrari",
+       "serviceSummary":"The luxury car brand Ferrari is named after its Italian founder, Enzo Ferrari, who was an official Alto race driver.",
+       "barandImage":"images/car-logo/lamborghini-logo.png"
+    },
+    
+    {
+       "id":7,
+       "serviceName":"Ford",
+       "serviceSummary":"The luxury car brand Ferrari is named after its Italian founder, Enzo Ferrari, who was an official Alto race driver.",
+       "barandImage":"images/car-logo/maserati-logo.png"
+    },
+    {
+       "id":9,
+       "serviceName":"Honda",
+       "serviceSummary":"The luxury car brand Ferrari is named after its Italian founder, Enzo Ferrari, who was an official Alto race driver.",
+       "barandImage":"images/car-logo/porsche-logo.png"
+    },
+     {
+       "id":10,
+       "serviceName":"Mercedes",
+       "serviceSummary":"The luxury car brand Ferrari is named after its Italian founder, Enzo Ferrari, who was an official Alto race driver.",
+       "barandImage":"images/car-logo/toyota-logo.png"
+    }
+    
+    
+
+ ]
